@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <script defer src="./js/app.js"></script>
   </head>
   <body>
     <section class="regalos">
-      <div>
-        <h3 class="regalos-title">Regalos</h3>
+      <h3 class="regalos-title">Regalos</h3>
+      <form class="regalos-form" action="#">
+        <input type="text" name="regalo" id="regalo" placeholder="Regalo" />
+        <button class="add-btn" type="submit">Agregar Regalo</button>
+      </form>
+      <div class="regalos-container">
         <ul class="regalos-list">
           <li class="regalos-item">Playstation 5</li>
           <li class="regalos-item">Pici master race</li>
