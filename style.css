@@ -3,11 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+html{
+  min-height: 100vh;
+}
 body{
   background-image: url("./images/fondos/fondo_body.svg");
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100%;
 }
 .regalos{
   margin: 100px auto;
@@ -29,13 +32,22 @@ body{
   border-radius: 5px;
 }
 
-.add-btn{
+.btn{
   padding: 0.5em 1em;
-  background-color: rgb(44 91 2);
   font-size: 16px;
   color: rgb(255 255 255);
   font-weight: bold;
   border-radius: 5px;
+}
+
+.add-btn{
+  background-color: rgb(44 91 2);
+
+}
+
+.remove-btn{
+  background-color: rgb(179 0 0 );
+
 }
 
 .regalos-container{
@@ -68,4 +80,8 @@ body{
 
 .delete-btn{
   background-color: transparent;
+}
+
+.hidden-message{
+  visibility: hidden;
 }

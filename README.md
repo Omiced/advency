@@ -25,3 +25,8 @@ Tocó poder eliminar regalos de la lista.
 Cambie código para tener un estado local, y poder manejar los regalos que se eliminan y los que se muestran.
 Hice uso de event delegation para escuchar los eventos en los elementos generados dinámicamente y poder borrar.
 Por el momento todo ok.
+
+## Día 5
+
+Goncy puso la tarea de agregar un botón para eliminar todos los regalos de una vez.
+También voy a agregar un mensaje en el contenedor de los regalos para cuando no haya regalos.

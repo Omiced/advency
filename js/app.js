@@ -2,6 +2,7 @@ const addForm = document.querySelector(".regalos-form");
 const giftListEl = document.querySelector(".regalos-list");
 const giftValue = document.querySelector("#regalo");
 const giftsContainerEl = document.querySelector(".regalos-list");
+const removeAllBtn = document.querySelector(".remove-btn");
 
 const giftsList = [];
 
@@ -36,6 +37,7 @@ const pushGift = function (gift) {
 
 const removeGift = function (gift) {
   giftsList.splice(gift, 1);
+
   updateList();
 };
 
@@ -43,6 +45,11 @@ const updateList = function () {
   giftsList.forEach((gift) => delete gift.render);
   giftListEl.innerHTML = "";
   renderGift();
+};
+
+const removeAllGifts = function () {
+  giftsList.length = 0;
+  updateList();
 };
 
 addForm.addEventListener("submit", (e) => {
@@ -59,3 +66,5 @@ giftListEl.addEventListener("click", (e) => {
     removeGift(e.target.dataset.item);
   }
 });
+
+removeAllBtn.addEventListener("click", removeAllGifts);
