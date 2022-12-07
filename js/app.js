@@ -73,6 +73,10 @@ function showMessage() {
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
   if (!giftValue.value) return;
+  if (giftsList.some((el) => el.name === giftValue.value)) {
+    window.alert("Agregaste el mismo regalo, prueba agregando uno diferente");
+    return;
+  }
   pushGift(giftValue.value);
   giftValue.value = "";
   renderGift();

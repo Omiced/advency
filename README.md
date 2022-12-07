@@ -36,3 +36,10 @@ También voy a agregar un mensaje en el contenedor de los regalos para cuando no
 Agregar mensaje cuando no hay regalos
 Eso pense en hacerlo ayer pero me daba un bug que aún no se como solucionar, pero ni modo
 Para el día 6 si tocó hacerlo pero con otra aproximación diferente a la que tenía ayer.
+
+## Día 7
+
+No permitir agregar regalos vacios ni repetidos.
+Para los vacios es re izi voy a poner required al input.
+Para los repetidos voy a usar includes, en mi estado y si ya esta no lo agrego y mando un alert
+para que sepan que ya esta repetido.
