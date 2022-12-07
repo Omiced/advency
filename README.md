@@ -30,3 +30,9 @@ Por el momento todo ok.
 
 Goncy puso la tarea de agregar un botón para eliminar todos los regalos de una vez.
 También voy a agregar un mensaje en el contenedor de los regalos para cuando no haya regalos.
+
+## Día 6
+
+Agregar mensaje cuando no hay regalos
+Eso pense en hacerlo ayer pero me daba un bug que aún no se como solucionar, pero ni modo
+Para el día 6 si tocó hacerlo pero con otra aproximación diferente a la que tenía ayer.

@@ -3,10 +3,12 @@ const giftListEl = document.querySelector(".regalos-list");
 const giftValue = document.querySelector("#regalo");
 const giftsContainerEl = document.querySelector(".regalos-list");
 const removeAllBtn = document.querySelector(".remove-btn");
-
+const messageEl = document.querySelector("#message");
 const giftsList = [];
+showMessage();
 
 const renderGift = function () {
+  if (giftsList.length === 1) giftListEl.innerHTML = "";
   giftsList.forEach((gift, i) => {
     if (gift.render) return;
     gift.render = true;
@@ -37,12 +39,16 @@ const pushGift = function (gift) {
 
 const removeGift = function (gift) {
   giftsList.splice(gift, 1);
-
   updateList();
 };
 
 const updateList = function () {
   giftsList.forEach((gift) => delete gift.render);
+  if (giftsList.length === 0) {
+    giftListEl.innerHTML = "";
+    showMessage();
+    return;
+  }
   giftListEl.innerHTML = "";
   renderGift();
 };
@@ -52,6 +58,18 @@ const removeAllGifts = function () {
   updateList();
 };
 
+function showMessage() {
+  if (giftsList.length != 0) return;
+  giftListEl.insertAdjacentHTML(
+    "beforeEnd",
+    `
+  <h2 id="message">
+    Aún no tienes regalos, agrega algunos rapidos o no tendrás nada para navidad.
+  </h2>
+  `
+  );
+}
+//eventos
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
   if (!giftValue.value) return;
@@ -67,4 +85,6 @@ giftListEl.addEventListener("click", (e) => {
   }
 });
 
-removeAllBtn.addEventListener("click", removeAllGifts);
+removeAllBtn.addEventListener("click", () => {
+  removeAllGifts();
+});
