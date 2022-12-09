@@ -43,3 +43,8 @@ No permitir agregar regalos vacios ni repetidos.
 Para los vacios es re izi voy a poner required al input.
 Para los repetidos voy a usar includes, en mi estado y si ya esta no lo agrego y mando un alert
 para que sepan que ya esta repetido.
+
+## Día 8
+
+Permitir agregar una cantidad a los regalos, para no tener duplicados pero si cuantos se necesitan.
+Simplemente agrege el input y su valor a una nueva propiedad en el estado, y ya renderice.

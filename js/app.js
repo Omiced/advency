@@ -4,6 +4,7 @@ const giftValue = document.querySelector("#regalo");
 const giftsContainerEl = document.querySelector(".regalos-list");
 const removeAllBtn = document.querySelector(".remove-btn");
 const messageEl = document.querySelector("#message");
+const giftCantidad = document.querySelector("#num-regalos");
 const giftsList = [];
 showMessage();
 
@@ -16,7 +17,8 @@ const renderGift = function () {
       "beforeEnd",
       `
     <li class="regalos-item">
-      ${gift.name}
+      <p>${gift.name}</p>
+      <span>x ${gift.cantidad ? gift.cantidad : 1}</span>
       <button type="button" class="delete-btn" data-item="${i}">
         <img
           src="images/icons/trash_icon.svg"
@@ -31,9 +33,10 @@ const renderGift = function () {
   });
 };
 
-const pushGift = function (gift) {
+const pushGift = function (gift, cantidad = 1) {
   giftsList.push({
     name: gift,
+    cantidad: cantidad,
   });
 };
 
@@ -77,8 +80,9 @@ addForm.addEventListener("submit", (e) => {
     window.alert("Agregaste el mismo regalo, prueba agregando uno diferente");
     return;
   }
-  pushGift(giftValue.value);
+  pushGift(giftValue.value, giftCantidad.value);
   giftValue.value = "";
+  giftCantidad.value = "";
   renderGift();
 });
 
