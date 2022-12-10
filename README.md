@@ -48,3 +48,8 @@ para que sepan que ya esta repetido.
 
 Permitir agregar una cantidad a los regalos, para no tener duplicados pero si cuantos se necesitan.
 Simplemente agrege el input y su valor a una nueva propiedad en el estado, y ya renderice.
+
+## Día 9
+
+Agregar persistencia de datos en local, pense que me iba a costar más pero notó que cada día puedo usar mejor la
+documentación entonces me tarde menos de lo que pensaba, tuve que arreglar algunos bugs pero todo bien creo.

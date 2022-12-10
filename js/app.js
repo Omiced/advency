@@ -6,9 +6,20 @@ const removeAllBtn = document.querySelector(".remove-btn");
 const messageEl = document.querySelector("#message");
 const giftCantidad = document.querySelector("#num-regalos");
 const giftsList = [];
-showMessage();
+init();
+function getLocal() {
+  if (!localStorage.getItem("gifts")) return;
+  const regalos = JSON.parse(localStorage.getItem("gifts"));
+  regalos.forEach((regalo) => giftsList.push(regalo));
+  updateList();
+}
 
-const renderGift = function () {
+function init() {
+  getLocal();
+  renderGift();
+  showMessage();
+}
+function renderGift() {
   if (giftsList.length === 1) giftListEl.innerHTML = "";
   giftsList.forEach((gift, i) => {
     if (gift.render) return;
@@ -31,21 +42,24 @@ const renderGift = function () {
   `
     );
   });
-};
+}
 
 const pushGift = function (gift, cantidad = 1) {
   giftsList.push({
     name: gift,
     cantidad: cantidad,
   });
+  localStorage.setItem("gifts", JSON.stringify(giftsList));
 };
 
 const removeGift = function (gift) {
   giftsList.splice(gift, 1);
+  localStorage.clear();
+  localStorage.setItem("gifts", JSON.stringify(giftsList));
   updateList();
 };
 
-const updateList = function () {
+function updateList() {
   giftsList.forEach((gift) => delete gift.render);
   if (giftsList.length === 0) {
     giftListEl.innerHTML = "";
@@ -54,15 +68,17 @@ const updateList = function () {
   }
   giftListEl.innerHTML = "";
   renderGift();
-};
+}
 
 const removeAllGifts = function () {
   giftsList.length = 0;
+  localStorage.clear();
   updateList();
 };
 
 function showMessage() {
   if (giftsList.length != 0) return;
+  giftListEl.innerHTML = "";
   giftListEl.insertAdjacentHTML(
     "beforeEnd",
     `
