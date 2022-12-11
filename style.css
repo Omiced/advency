@@ -23,8 +23,10 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   gap: 0.5em;
   margin: 10px;
+  color:rgb(0 0 0 )
 }
 
 .regalos-form > input{
@@ -54,7 +56,7 @@ body{
   display:grid;
   text-align: center;
   color: rgb(255, 255, 255);
-  grid-template-columns: repeat(auto-fit,minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
 }
 .regalos-title{
   text-align: center;
@@ -84,4 +86,33 @@ body{
 
 .hidde-message{
   display: none;
+}
+
+.img-regalo{
+  display:block;
+  width: 50px;
+  aspect-ratio: 1;
+}
+
+/* Modal */
+.modal::backdrop{
+  background: rgb(44 91 2 / .4);
+  opacity: .8;
+}
+
+.modal{
+  padding: 1rem;
+  margin: auto;
+  max-width: 80%;
+}
+
+.open-modal{
+  background-color:rgb(44 91 2) ;
+}
+
+/* btn borrar todo y agregar */
+.btns{
+  display: grid;
+  place-items: center;
+  grid-auto-flow: column;
 }

@@ -53,3 +53,8 @@ Simplemente agrege el input y su valor a una nueva propiedad en el estado, y ya 
 
 Agregar persistencia de datos en local, pense que me iba a costar más pero notó que cada día puedo usar mejor la
 documentación entonces me tarde menos de lo que pensaba, tuve que arreglar algunos bugs pero todo bien creo.
+
+## Día 10 y 11
+
+Agregar la posibilidad de poner imagenes mediante un link
+Cambiar el formulario para agregar regalos a un modal para que este mas chido todo.

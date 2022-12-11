@@ -5,6 +5,9 @@ const giftsContainerEl = document.querySelector(".regalos-list");
 const removeAllBtn = document.querySelector(".remove-btn");
 const messageEl = document.querySelector("#message");
 const giftCantidad = document.querySelector("#num-regalos");
+const giftImgEl = document.querySelector("#img-regalo");
+const openModalBtn = document.querySelector(".open-modal");
+const modalEl = document.querySelector(".modal");
 const giftsList = [];
 init();
 function getLocal() {
@@ -15,8 +18,8 @@ function getLocal() {
 }
 
 function init() {
-  getLocal();
   renderGift();
+  getLocal();
   showMessage();
 }
 function renderGift() {
@@ -27,27 +30,33 @@ function renderGift() {
     giftListEl.insertAdjacentHTML(
       "beforeEnd",
       `
-    <li class="regalos-item">
-      <p>${gift.name}</p>
-      <span>x ${gift.cantidad ? gift.cantidad : 1}</span>
-      <button type="button" class="delete-btn" data-item="${i}">
+      <li class="regalos-item">
         <img
-          src="images/icons/trash_icon.svg"
-          alt="trash can icon"
-          class="icon"
-          id="delete"
-        />
-      </button>
+            src="${gift.imagen}"
+            alt="imagen regalo"
+            class="img-regalo"
+          />
+        <p>${gift.name}</p>
+        <span>x ${gift.cantidad ? gift.cantidad : 1}</span>
+        <button type="button" class="delete-btn" data-item="${i}">
+          <img
+            src="images/icons/trash_icon.svg"
+            alt="trash can icon"
+            class="icon"
+            id="delete"
+          />
+        </button>
     </li>
   `
     );
   });
 }
 
-const pushGift = function (gift, cantidad = 1) {
+const pushGift = function (gift, cantidad = 1, imagen) {
   giftsList.push({
     name: gift,
     cantidad: cantidad,
+    imagen: imagen,
   });
   localStorage.setItem("gifts", JSON.stringify(giftsList));
 };
@@ -96,10 +105,13 @@ addForm.addEventListener("submit", (e) => {
     window.alert("Agregaste el mismo regalo, prueba agregando uno diferente");
     return;
   }
-  pushGift(giftValue.value, giftCantidad.value);
+  if (!giftImgEl.value) giftImgEl.value = "./images/default_gift.png";
+  pushGift(giftValue.value, giftCantidad.value, giftImgEl.value);
+  giftImgEl.value = "";
   giftValue.value = "";
   giftCantidad.value = "";
   renderGift();
+  modalEl.close();
 });
 
 giftListEl.addEventListener("click", (e) => {
@@ -112,3 +124,4 @@ giftListEl.addEventListener("click", (e) => {
 removeAllBtn.addEventListener("click", () => {
   removeAllGifts();
 });
+openModalBtn.addEventListener("click", () => modalEl.showModal());

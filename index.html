@@ -11,23 +11,40 @@
   <body>
     <section class="regalos">
       <h3 class="regalos-title">Regalos</h3>
-      <form class="regalos-form" action="#">
-        <input
-          required
-          type="text"
-          name="regalo"
-          id="regalo"
-          placeholder="Regalo"
-        />
-        <input
-          type="number"
-          name="num-regalos"
-          id="num-regalos"
-          placeholder="cantidad"
-        />
-        <button class="add-btn btn" type="submit">Agregar Regalo</button>
+      <dialog class="modal">
+        <form class="regalos-form" action="#">
+          <caption>
+            Agregar Regalo
+          </caption>
+          <label for="regalo">Regalo</label>
+          <input
+            required
+            type="text"
+            name="regalo"
+            id="regalo"
+            placeholder="Regalo"
+          />
+          <label for="num-regalos">Cantidad</label>
+          <input
+            type="number"
+            name="num-regalos"
+            id="num-regalos"
+            placeholder="cantidad"
+          />
+          <label for="img-regalo">URL Imagen del Regalo</label>
+          <input
+            type="url"
+            name="img-regalo"
+            id="img-regalo"
+            placeholder="https://example.com"
+          />
+          <button class="add-btn btn" type="submit">Agregar</button>
+        </form>
+      </dialog>
+      <div class="btns">
+        <button class="open-modal btn" type="button">Agregar Regalo</button>
         <button class="remove-btn btn" type="button">Borrar todo</button>
-      </form>
+      </div>
       <div class="regalos-container">
         <ul class="regalos-list"></ul>
       </div>
