@@ -58,3 +58,8 @@ documentación entonces me tarde menos de lo que pensaba, tuve que arreglar algu
 
 Agregar la posibilidad de poner imagenes mediante un link
 Cambiar el formulario para agregar regalos a un modal para que este mas chido todo.
+
+## Día 12
+
+Agregar Destinatario
+Modifique como se muestran los regalos también.

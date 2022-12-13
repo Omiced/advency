@@ -1,13 +1,13 @@
 const addForm = document.querySelector(".regalos-form");
 const giftListEl = document.querySelector(".regalos-list");
 const giftValue = document.querySelector("#regalo");
-const giftsContainerEl = document.querySelector(".regalos-list");
 const removeAllBtn = document.querySelector(".remove-btn");
 const messageEl = document.querySelector("#message");
 const giftCantidad = document.querySelector("#num-regalos");
 const giftImgEl = document.querySelector("#img-regalo");
 const openModalBtn = document.querySelector(".open-modal");
 const modalEl = document.querySelector(".modal");
+const destinatarioEl = document.querySelector("#destinatario");
 const giftsList = [];
 init();
 function getLocal() {
@@ -31,32 +31,27 @@ function renderGift() {
       "beforeEnd",
       `
       <li class="regalos-item">
-        <img
-            src="${gift.imagen}"
-            alt="imagen regalo"
-            class="img-regalo"
-          />
-        <p>${gift.name}</p>
-        <span>x ${gift.cantidad ? gift.cantidad : 1}</span>
-        <button type="button" class="delete-btn" data-item="${i}">
-          <img
-            src="images/icons/trash_icon.svg"
-            alt="trash can icon"
-            class="icon"
-            id="delete"
-          />
-        </button>
+        <figure class="card">
+          <h3>${gift.name}</h3>
+          <img src="${gift.imagen}" class="card-img" alt="">
+          <figcaption>${
+            gift.destinatario ? "Para " + gift.destinatario : "Es secreto"
+          }</figcaption>
+          <p>Cantidad ${gift.cantidad ? gift.cantidad : 1}</p>
+          <button class="delete-btn" data-item="${i}" id="delete">Borrar</button>
+        </figure>
     </li>
   `
     );
   });
 }
 
-const pushGift = function (gift, cantidad = 1, imagen) {
+const pushGift = function (gift, cantidad = 1, imagen, destinatario = "") {
   giftsList.push({
     name: gift,
     cantidad: cantidad,
     imagen: imagen,
+    destinatario: destinatario,
   });
   localStorage.setItem("gifts", JSON.stringify(giftsList));
 };
@@ -91,9 +86,9 @@ function showMessage() {
   giftListEl.insertAdjacentHTML(
     "beforeEnd",
     `
-  <h2 id="message">
-    Aún no tienes regalos, agrega algunos rapidos o no tendrás nada para navidad.
-  </h2>
+      <h2 class="message" id="message">
+        Aún no tienes regalos, agrega algunos rapidos o no tendrás nada para navidad.
+      </h2>
   `
   );
 }
@@ -106,10 +101,16 @@ addForm.addEventListener("submit", (e) => {
     return;
   }
   if (!giftImgEl.value) giftImgEl.value = "./images/default_gift.png";
-  pushGift(giftValue.value, giftCantidad.value, giftImgEl.value);
+  pushGift(
+    giftValue.value,
+    giftCantidad.value,
+    giftImgEl.value,
+    destinatarioEl.value
+  );
   giftImgEl.value = "";
   giftValue.value = "";
   giftCantidad.value = "";
+  destinatarioEl.value = "";
   renderGift();
   modalEl.close();
 });
