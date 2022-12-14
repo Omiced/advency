@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Advency</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="./js/app.js"></script>
   </head>
   <body>
     <section class="regalos">
       <h3 class="regalos-title">Regalos</h3>
-      <dialog class="modal">
-        <form class="regalos-form" action="#">
+      <dialog class="modal" id="modal-add">
+        <form class="regalos-form" action="#" id="add-form">
           <caption>
             Agregar Regalo
           </caption>
@@ -41,6 +41,40 @@
           <label for="destinatario">¿Para quién es?</label>
           <input type="text" name="quien" id="destinatario" />
           <button class="add-btn btn" type="submit">Agregar</button>
+        </form>
+      </dialog>
+      <dialog class="modal" id="modal-edit">
+        <form class="regalos-form" action="#">
+          <caption>
+            Editar Regalo
+          </caption>
+          <label for="regalo">Regalo</label>
+          <input
+            required
+            type="text"
+            name="regalo"
+            id="regalo-edit"
+            placeholder="Regalo"
+          />
+          <label for="num-regalos">Cantidad</label>
+          <input
+            type="number"
+            name="num-regalos"
+            id="num-regalos-edit"
+            placeholder="cantidad"
+          />
+          <label for="img-regalo">URL Imagen del Regalo</label>
+          <input
+            type="url"
+            name="img-regalo"
+            id="img-regalo-edit"
+            placeholder="https://example.com"
+          />
+          <label for="destinatario">¿Para quién es?</label>
+          <input type="text" name="quien" id="destinatario-edit" />
+          <button class="edit-btn btn" id="edit-btn" type="submit">
+            Editar
+          </button>
         </form>
       </dialog>
       <div class="btns">

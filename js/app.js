@@ -1,13 +1,19 @@
-const addForm = document.querySelector(".regalos-form");
+const addForm = document.querySelector("#add-form");
 const giftListEl = document.querySelector(".regalos-list");
 const giftValue = document.querySelector("#regalo");
+const giftValueEdit = document.querySelector("#regalo-edit");
 const removeAllBtn = document.querySelector(".remove-btn");
 const messageEl = document.querySelector("#message");
 const giftCantidad = document.querySelector("#num-regalos");
+const giftCantidadEditEl = document.querySelector("#num-regalos-edit");
 const giftImgEl = document.querySelector("#img-regalo");
+const giftImgEditEl = document.querySelector("#img-regalo-edit");
 const openModalBtn = document.querySelector(".open-modal");
-const modalEl = document.querySelector(".modal");
+const modalAddEl = document.querySelector("#modal-add");
+const modalEditEl = document.querySelector("#modal-edit");
 const destinatarioEl = document.querySelector("#destinatario");
+const destinatarioEditEl = document.querySelector("#destinatario-edit");
+const editBtnEl = document.querySelector("#edit-btn");
 const giftsList = [];
 init();
 function getLocal() {
@@ -38,7 +44,10 @@ function renderGift() {
             gift.destinatario ? "Para " + gift.destinatario : "Es secreto"
           }</figcaption>
           <p>Cantidad ${gift.cantidad ? gift.cantidad : 1}</p>
-          <button class="delete-btn" data-item="${i}" id="delete">Borrar</button>
+          <div class="btns-container">
+            <button class="delete-btn btn" data-item="${i}" id="delete">Borrar</button>
+            <button class="edit-btn btn" data-item="${i}" id="edit">Editar</button>
+          </div>
         </figure>
     </li>
   `
@@ -58,6 +67,16 @@ const pushGift = function (gift, cantidad = 1, imagen, destinatario = "") {
 
 const removeGift = function (gift) {
   giftsList.splice(gift, 1);
+  localStorage.clear();
+  localStorage.setItem("gifts", JSON.stringify(giftsList));
+  updateList();
+};
+
+const editGift = function (gift, name, cantidad, imgURL, destinatario) {
+  giftsList[gift].name = name;
+  giftsList[gift].cantidad = cantidad;
+  giftsList[gift].imagen = imgURL;
+  giftsList[gift].destinatario = destinatario;
   localStorage.clear();
   localStorage.setItem("gifts", JSON.stringify(giftsList));
   updateList();
@@ -112,7 +131,7 @@ addForm.addEventListener("submit", (e) => {
   giftCantidad.value = "";
   destinatarioEl.value = "";
   renderGift();
-  modalEl.close();
+  modalAddEl.close();
 });
 
 giftListEl.addEventListener("click", (e) => {
@@ -120,9 +139,35 @@ giftListEl.addEventListener("click", (e) => {
   if (e.target.id === "delete") {
     removeGift(e.target.dataset.item);
   }
+  if (e.target.id === "edit") {
+    modalEditEl.showModal();
+    const giftNum = e.target.dataset.item;
+    giftImgEditEl.value =
+      giftsList[giftNum].imagen === "./images/default_gift.png"
+        ? ""
+        : giftsList[giftNum].imagen;
+    giftValueEdit.value = giftsList[giftNum].name;
+    giftCantidadEditEl.value = giftsList[giftNum].cantidad
+      ? giftsList[giftNum].cantidad
+      : 1;
+    destinatarioEditEl.value = giftsList[giftNum].destinatario
+      ? giftsList[giftNum].destinatario
+      : "Es secreto";
+    editBtnEl.addEventListener("click", (e) => {
+      e.preventDefault();
+      editGift(
+        giftNum,
+        giftValueEdit.value,
+        giftCantidadEditEl.value,
+        giftImgEditEl.value ? giftImgEditEl.value : "./images/default_gift.png",
+        destinatarioEditEl.value
+      );
+      modalEditEl.close();
+    });
+  }
 });
 
 removeAllBtn.addEventListener("click", () => {
   removeAllGifts();
 });
-openModalBtn.addEventListener("click", () => modalEl.showModal());
+openModalBtn.addEventListener("click", () => modalAddEl.showModal());

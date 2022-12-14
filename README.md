@@ -63,3 +63,7 @@ Cambiar el formulario para agregar regalos a un modal para que este mas chido to
 
 Agregar Destinatario
 Modifique como se muestran los regalos también.
+
+## Día 13
+
+Agregar la posibilidad de editar un regalo ya agregado.

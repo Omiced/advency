@@ -51,12 +51,32 @@ body{
   background-color: rgb(179 0 0 );
 
 }
-.delete-btn{
+
+.btns-container{
   width: 100%;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+.delete-btn{
+  /* width: 40%; */
   background-color: rgb(179 0 0 );
-  border: none;
+  /* border: none;
   padding: 10px;
   margin-bottom: 0;
+  color: rgb(255 255 255);
+  font-size: 14px; */
+}
+
+.edit-btn{
+  /* width: 40%; */
+  background-color: rgb(52 93 137 );
+  /* border: none;
+  padding: 10px;
+  margin-bottom: 0;
+  color:rgb(255 255 255);
+  font-size: 14px; */
 }
 .regalos-container{
   display:grid;
@@ -132,6 +152,7 @@ body{
   gap: 10px;
   background-color: rgb(45 87 44 / .6);
   padding: 20px 0 0 0;
+  border-radius: 5px;
 }
 
 .card-img{
