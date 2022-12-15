@@ -67,3 +67,7 @@ Modifique como se muestran los regalos también.
 ## Día 13
 
 Agregar la posibilidad de editar un regalo ya agregado.
+
+## Día 14
+
+Agregar que se pueda hacer todo sin tocar el mouse
