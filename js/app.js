@@ -171,3 +171,10 @@ removeAllBtn.addEventListener("click", () => {
   removeAllGifts();
 });
 openModalBtn.addEventListener("click", () => modalAddEl.showModal());
+
+// posible petición de api
+// const regaloApi = async function () {
+//   const response = await fetch("APi-url");
+//   const data = await response.json();
+//   return data;
+// };

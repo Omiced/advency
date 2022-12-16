@@ -71,3 +71,7 @@ Agregar la posibilidad de editar un regalo ya agregado.
 ## Día 14
 
 Agregar que se pueda hacer todo sin tocar el mouse
+
+## Día 15
+
+No entendí muy bien pero hice algo esperemos que si sea 🤨.
