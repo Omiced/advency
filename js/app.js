@@ -14,6 +14,7 @@ const modalEditEl = document.querySelector("#modal-edit");
 const destinatarioEl = document.querySelector("#destinatario");
 const destinatarioEditEl = document.querySelector("#destinatario-edit");
 const editBtnEl = document.querySelector("#edit-btn");
+const sorpresaBtnEl = document.querySelector("#sorpresa");
 const giftsList = [];
 init();
 function getLocal() {
@@ -111,6 +112,37 @@ function showMessage() {
   `
   );
 }
+
+const regaloSorpresa = function () {
+  const regalos = [
+    {
+      name: "PlayStation 5",
+      imgURL:
+        "http://cdn.shopify.com/s/files/1/0257/8812/1137/products/image_55de00df-8570-481e-8716-c04c6e670a08_1200x1200.jpg?v=1657554803",
+    },
+    {
+      name: "Xbox series X",
+      imgURL: "https://m.media-amazon.com/images/I/61eYoSqkHnL._AC_SX466_.jpg",
+    },
+    {
+      name: "Carbón",
+      imgURL:
+        "https://www.foronuclear.org/wp-content/uploads/2010/06/carbon.jpg",
+    },
+    {
+      name: "Calcetines Navideños",
+      imgURL:
+        "https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/3pp/asr/2b8f8872-5032-4e51-a998-9005c77fccb4.869eb95190b2a983f8985172f01dbf82.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff",
+    },
+    {
+      name: "Chocolates",
+      imgURL:
+        "https://dam.cocinafacil.com.mx/wp-content/uploads/2018/04/chocolate-amargo.jpg",
+    },
+  ];
+  const randomId = Math.floor(Math.random() * regalos.length);
+  return regalos[randomId];
+};
 //eventos
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -171,6 +203,13 @@ removeAllBtn.addEventListener("click", () => {
   removeAllGifts();
 });
 openModalBtn.addEventListener("click", () => modalAddEl.showModal());
+
+sorpresaBtnEl.addEventListener("click", (e) => {
+  e.preventDefault();
+  const regaloSor = regaloSorpresa();
+  giftValue.value = regaloSor.name;
+  giftImgEl.value = regaloSor.imgURL;
+});
 
 // posible petición de api
 // const regaloApi = async function () {
