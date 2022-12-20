@@ -34,6 +34,15 @@ body{
   border-radius: 5px;
 }
 
+.cantiprecio{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cantiprecio > input{
+  width: 25%;
+}
+
 .btn{
   padding: 0.5em 1em;
   font-size: 16px;
@@ -52,8 +61,12 @@ body{
 
 }
 .btn-sorpresa{
-  background-color: cyan;
-  color: black;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 300;
+  border: none;
+  color: #444;
+  font-size: 12px;
 }
 
 .btns-container{
@@ -64,23 +77,13 @@ body{
   justify-content: center;
 }
 .delete-btn{
-  /* width: 40%; */
+  
   background-color: rgb(179 0 0 );
-  /* border: none;
-  padding: 10px;
-  margin-bottom: 0;
-  color: rgb(255 255 255);
-  font-size: 14px; */
+ 
 }
 
 .edit-btn{
-  /* width: 40%; */
   background-color: rgb(52 93 137 );
-  /* border: none;
-  padding: 10px;
-  margin-bottom: 0;
-  color:rgb(255 255 255);
-  font-size: 14px; */
 }
 .regalos-container{
   display:grid;
@@ -164,3 +167,9 @@ body{
   width: 35%;
 }
 
+#total{
+  color: black;
+  font-size: 24px;
+  background-color: rgb(255 255 255 / .8);
+  padding:  0.3em;
+}

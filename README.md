@@ -75,3 +75,15 @@ Agregar que se pueda hacer todo sin tocar el mouse
 ## Día 15
 
 No entendí muy bien pero hice algo esperemos que si sea 🤨.
+
+## Día 16
+
+Agregar regalo aleatorio, estuvo izi
+
+## Día 17
+
+Campo de precio, izi x2
+
+## Día 18 y 19
+
+Agregar precio total de los regalos.y permitir duplicar regalos ya hechos.

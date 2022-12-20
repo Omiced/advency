@@ -25,16 +25,24 @@
             id="regalo"
             placeholder="Regalo"
           />
-          <button class="btn btn-sorpresa" type="button" id="sorpresa">
+          <button class="btn-sorpresa" type="button" id="sorpresa">
             Regalo Sorpresa
           </button>
-          <label for="num-regalos">Cantidad</label>
-          <input
-            type="number"
-            name="num-regalos"
-            id="num-regalos"
-            placeholder="cantidad"
-          />
+          <label for="num-regalos">Cantidad y Precio</label>
+          <div class="cantiprecio">
+            <input
+              type="number"
+              name="num-regalos"
+              id="num-regalos"
+              placeholder="cantidad"
+            />
+            <input
+              type="number"
+              min="0"
+              id="precio-uni"
+              placeholder="precio 1pz"
+            />
+          </div>
           <label for="img-regalo">URL Imagen del Regalo</label>
           <input
             type="url"
@@ -60,13 +68,16 @@
             id="regalo-edit"
             placeholder="Regalo"
           />
-          <label for="num-regalos">Cantidad</label>
-          <input
-            type="number"
-            name="num-regalos"
-            id="num-regalos-edit"
-            placeholder="cantidad"
-          />
+          <label for="num-regalos">Cantidad y Precio</label>
+          <div class="cantiprecio">
+            <input
+              type="number"
+              name="num-regalos"
+              id="num-regalos-edit"
+              placeholder="cantidad"
+            />
+            <input type="number" name="precio-regalo" id="precio-edit" />
+          </div>
           <label for="img-regalo">URL Imagen del Regalo</label>
           <input
             type="url"
@@ -83,6 +94,7 @@
       </dialog>
       <div class="btns">
         <button class="open-modal btn" type="button">Agregar Regalo</button>
+        <p id="total">Precio Total $<span id="precioT">0</span></p>
         <button class="remove-btn btn" type="button">Borrar todo</button>
       </div>
       <div class="regalos-container">
