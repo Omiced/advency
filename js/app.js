@@ -18,6 +18,9 @@ const sorpresaBtnEl = document.querySelector("#sorpresa");
 const precioInput = document.querySelector("#precio-uni");
 const precioEditIn = document.querySelector("#precio-edit");
 const precioTotalEl = document.querySelector("#precioT");
+const modalImpEl = document.querySelector("#modal-imp");
+const modalImpBtn = document.querySelector("#imp-btn");
+const impresionBtn = document.querySelector("#impresion");
 const giftsList = [];
 let total = 0;
 init();
@@ -165,6 +168,24 @@ const regaloSorpresa = function () {
   const randomId = Math.floor(Math.random() * regalos.length);
   return regalos[randomId];
 };
+
+const listImp = function () {
+  giftsList.forEach((gift) => {
+    modalImpEl.insertAdjacentHTML(
+      "beforeend",
+      `
+        <div class="list-gift">
+          <img src="${
+            gift.imagen
+          }" width="50px" height="50px" class="list-img" alt="">
+          <p>${gift.name} x ${gift.cantidad} precio ${
+        gift.precio * gift.cantidad
+      } para ${gift.destinatario}</p>
+        </div>
+    `
+    );
+  });
+};
 //eventos
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -262,6 +283,27 @@ sorpresaBtnEl.addEventListener("click", (e) => {
   precioInput.value = regaloSor.precio;
 });
 
+modalImpBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  modalImpEl.showModal();
+  listImp();
+  modalImpEl.insertAdjacentHTML(
+    "beforeend",
+    `
+    <p> Total: $ ${total}</p>
+    `
+  );
+});
+
+impresionBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  let a = window.open("", "", "height=500, width=500");
+  a.document.write("<html>");
+  a.document.write("<body > <h1>Lista de regalos <br>");
+  a.document.write(modalImpEl.innerHTML);
+  a.document.write("</body></html>");
+  a.print();
+});
 // posible petición de api
 // const regaloApi = async function () {
 //   const response = await fetch("APi-url");
