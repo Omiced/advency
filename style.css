@@ -192,3 +192,11 @@ body{
   width: 50px;
   aspect-ratio: 1;
 }
+
+.audio{
+  width: 100%;
+  display: grid;
+  place-items: center;
+  color: white;
+  margin: 20px 0;
+}

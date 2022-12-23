@@ -87,3 +87,11 @@ Campo de precio, izi x2
 ## Día 18 y 19
 
 Agregar precio total de los regalos.y permitir duplicar regalos ya hechos.
+
+## Día 20 y 21
+
+Agregar vista simple de la lista y la posibilidad de mandar a imprimir.
+
+## Día 22
+
+Ponerle músiquita a la página, por defecto apagada y que el usuario elija si ponerla o no
