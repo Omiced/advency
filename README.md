@@ -95,3 +95,7 @@ Agregar vista simple de la lista y la posibilidad de mandar a imprimir.
 ## Día 22
 
 Ponerle músiquita a la página, por defecto apagada y que el usuario elija si ponerla o no
+
+## Día 23
+
+Agregar animación de copos de nieve alv
